@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta musical</title>
+
+<!-- Tipografías: Cormorant Garamond (versos), Caveat (notas manuscritas), Jost (interfaz) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Salvaguarda: si JavaScript no carga, el contenido queda visible igual.
+     Esta línea agrega la clase "js" al <html> apenas se lee, antes de pintar
+     la página. El CSS solo oculta versos/notas/recuerdos cuando esta clase
+     está presente, así que sin JS todo se ve de una, sin animación pero
+     completo. -->
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- ============================================= -->
+  <!-- FONDO: capa de estrellas / textura nocturna    -->
+  <!-- ============================================= -->
+  <div class="fondo-estrellas" aria-hidden="true"></div>
+
+  <!-- ============================================= -->
+  <!-- PANTALLA 1: SOBRE SELLADO (pantalla de entrada) -->
+  <!-- ============================================= -->
+  <section id="sobre" class="sobre">
+    <div class="sobre__cuerpo">
+      <div class="sobre__solapa"></div>
+      <!-- El sello de cera: al hacer clic, se rompe y abre la carta -->
+      <button id="sello" class="sello" aria-label="Abrir la carta">
+        <span class="sello__inicial">A</span> <!-- CAMBIA esta inicial por la que quieras en el sello -->
+      </button>
+    </div>
+    <p class="sobre__pista">toca el sello para abrir</p>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- PANTALLA 2: LA CARTA (contenido principal)     -->
+  <!-- ============================================= -->
+  <main id="carta" class="carta" hidden>
+
+    <!-- Encabezado de la carta: título, destinatario, fecha -->
+    <header class="carta__encabezado">
+      <p class="carta__fecha">Cartagena, [fecha]</p> <!-- CAMBIA la fecha o quítala -->
+      <h1 class="carta__titulo">[Título de la carta]</h1> <!-- CAMBIA este título -->
+      <p class="carta__subtitulo">para [nombre]</p> <!-- CAMBIA el destinatario -->
+    </header>
+
+    <!-- Introducción / mensaje breve antes de la letra -->
+    <p class="carta__intro">
+      Escribe aquí una frase corta de introducción, algo que sitúe el tono
+      antes de que empiece la canción. Puede ser una sola línea.
+    </p>
+
+    <!-- ============================================= -->
+    <!-- REPRODUCTOR DE AUDIO                           -->
+    <!-- ============================================= -->
+    <div class="reproductor" id="reproductor">
+      <audio id="audio" src="tu-cancion.mp3" preload="metadata"></audio> <!-- CAMBIA la ruta del archivo -->
+
+      <button id="btn-play" class="reproductor__play" aria-label="Reproducir">
+        <svg class="icono-play" viewBox="0 0 24 24" width="18" height="18"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        <svg class="icono-pausa" viewBox="0 0 24 24" width="18" height="18" hidden><path d="M6 5h4v14H6zM14 5h4v14h-4z" fill="currentColor"/></svg>
+      </button>
+
+      <div class="reproductor__info">
+        <p class="reproductor__cancion">[Nombre de la canción]</p> <!-- CAMBIA -->
+        <p class="reproductor__artista">[Artista]</p> <!-- CAMBIA -->
+      </div>
+
+      <div class="reproductor__barra">
+        <span class="reproductor__tiempo" id="tiempo-actual">0:00</span>
+        <input type="range" id="progreso" class="reproductor__progreso" value="0" min="0" max="100" aria-label="Progreso de la canción">
+        <span class="reproductor__tiempo" id="tiempo-total">0:00</span>
+      </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- LETRA CON NOTAS AL MARGEN                      -->
+    <!-- Cada .estrofa agrupa versos.                   -->
+    <!-- Un verso con nota lleva la clase "verso--nota" -->
+    <!-- y un <aside class="nota"> justo después,        -->
+    <!-- vinculados por data-nota (mismo valor en ambos) -->
+    <!-- ============================================= -->
+    <section class="letra">
+
+      <div class="estrofa">
+        <p class="verso">Primer verso de ejemplo, pega aquí la letra real</p>
+        <p class="verso verso--nota" data-nota="1">Segundo verso, este tiene una nota asociada</p>
+        <aside class="nota" data-nota="1">
+          Escribe aquí tu anotación personal para ese verso.
+        </aside>
+        <p class="verso">Tercer verso de ejemplo</p>
+        <p class="verso">Cuarto verso de ejemplo</p>
+      </div>
+
+      <!-- Espacio para una imagen/polaroid/GIF entre estrofas -->
+      <figure class="recuerdo recuerdo--rotada-izq">
+        <img src="tu-imagen.jpg" alt="Describe brevemente el recuerdo"> <!-- CAMBIA la ruta -->
+        <figcaption>una nota corta bajo la imagen, opcional</figcaption>
+      </figure>
+
+      <div class="estrofa">
+        <p class="verso verso--nota" data-nota="2">Quinto verso, otro con nota</p>
+        <aside class="nota" data-nota="2">
+          Otra anotación, puede ser más larga que la anterior, no hay límite fijo.
+        </aside>
+        <p class="verso">Sexto verso de ejemplo</p>
+        <p class="verso verso--nota" data-nota="3">Séptimo verso, el que más pega</p>
+        <aside class="nota nota--resaltada" data-nota="3">
+          Esta nota lleva la clase "nota--resaltada" para el verso más importante,
+          usa el acento rosa tenue definido en la paleta.
+        </aside>
+        <p class="verso">Octavo verso de ejemplo</p>
+      </div>
+
+      <div class="estrofa">
+        <p class="verso">Novena línea, sin nota, solo letra</p>
+        <p class="verso">Décima línea de cierre</p>
+      </div>
+
+    </section>
+
+    <!-- Cierre de la carta -->
+    <footer class="carta__cierre">
+      <p class="carta__firma">— [tu firma o iniciales]</p> <!-- CAMBIA -->
+    </footer>
+
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
