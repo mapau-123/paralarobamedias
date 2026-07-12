@@ -27,7 +27,7 @@
   --espacio-s:  1rem;
   --espacio-m:  2rem;
   --espacio-l:  3.5rem;
-  --espacio-xl: 6rem;
+  --espacio-xl: 3rem;
 
   /* Transiciones */
   --ease-suave: cubic-bezier(0.22, 1, 0.36, 1);
