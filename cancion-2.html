@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta musical — canción 2</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Salvaguarda: si JavaScript no carga, el contenido queda visible igual. -->
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <div class="fondo-estrellas" aria-hidden="true"></div>
+
+  <!-- Esta página NO tiene sobre: el sobre solo existe una vez, en index.html.
+       Por eso "carta" no lleva el atributo "hidden" ni empieza oculta:
+       aparece visible de una vez al cargar la página. -->
+  <main id="carta" class="carta carta--visible">
+
+    <!-- ============================================= -->
+    <!-- REPRODUCTOR DE AUDIO                           -->
+    <!-- ============================================= -->
+    <div class="reproductor" id="reproductor">
+      <audio id="audio" src="tu-cancion-2.mp3" preload="metadata"></audio> <!-- CAMBIA la ruta del archivo -->
+
+      <button id="btn-play" class="reproductor__play" aria-label="Reproducir">
+        <svg class="icono-play" viewBox="0 0 24 24" width="18" height="18"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        <svg class="icono-pausa" viewBox="0 0 24 24" width="18" height="18" hidden><path d="M6 5h4v14H6zM14 5h4v14h-4z" fill="currentColor"/></svg>
+      </button>
+
+      <div class="reproductor__info">
+        <p class="reproductor__cancion">[Nombre de la canción 2]</p> <!-- CAMBIA -->
+        <p class="reproductor__artista">[Artista]</p> <!-- CAMBIA -->
+      </div>
+
+      <div class="reproductor__barra">
+        <span class="reproductor__tiempo" id="tiempo-actual">0:00</span>
+        <input type="range" id="progreso" class="reproductor__progreso" value="0" min="0" max="100" aria-label="Progreso de la canción">
+        <span class="reproductor__tiempo" id="tiempo-total">0:00</span>
+      </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- LETRA CON NOTAS AL MARGEN                      -->
+    <!-- Mismo patrón que en index.html: cada verso con -->
+    <!-- nota lleva data-nota="N" y su <aside> hermano.  -->
+    <!-- ============================================= -->
+    <section class="letra">
+
+      <div class="estrofa">
+        <p class="verso">[Verso 1]<span class="traduccion">[traducción verso 1]</span></p>
+        <p class="verso verso--nota" data-nota="1">[Verso 2]<span class="traduccion">[traducción verso 2]</span></p>
+        <aside class="nota" data-nota="1">[tu anotación aquí]</aside>
+        <p class="verso">[Verso 3]<span class="traduccion">[traducción verso 3]</span></p>
+        <p class="verso">[Verso 4]<span class="traduccion">[traducción verso 4]</span></p>
+      </div>
+
+      <!-- Espacio para una imagen/polaroid/GIF entre estrofas, opcional -->
+      <figure class="recuerdo recuerdo--rotada-izq">
+        <img src="tu-imagen-2.jpg" alt="Describe brevemente el recuerdo"> <!-- CAMBIA la ruta -->
+        <figcaption>una nota corta bajo la imagen, opcional</figcaption>
+      </figure>
+
+      <div class="estrofa">
+        <p class="verso verso--nota" data-nota="2">[Verso 5]<span class="traduccion">[traducción verso 5]</span></p>
+        <aside class="nota" data-nota="2">[tu anotación aquí]</aside>
+        <p class="verso">[Verso 6]<span class="traduccion">[traducción verso 6]</span></p>
+      </div>
+
+    </section>
+
+    <!-- Cierre de la carta (opcional, puedes quitar la firma si prefieres) -->
+    <footer class="carta__cierre">
+      <p class="carta__firma">— [tu firma o iniciales]</p>
+    </footer>
+
+    <!-- Navegación: esta página SÍ tiene "anterior" (vuelve a la portada / canción 1)
+         y "siguiente" (a la canción 3). CAMBIA los href según tus archivos. -->
+    <nav class="navegacion">
+      <a href="index.html" class="navegacion__anterior">← Anterior</a>
+      <a href="cancion-3.html" class="navegacion__siguiente">Siguiente canción →</a>
+    </nav>
+
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
