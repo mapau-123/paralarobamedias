@@ -512,10 +512,15 @@ html.js .recuerdo--rotada-der.recuerdo--visible { transform: rotate(3deg); }
   text-align: right;
 }
 
-.carta__firma {
+/* Relato o introducción al inicio de cada canción */
+.carta__relato {
   font-family: var(--fuente-notas);
   font-size: 1.6rem;
-  color: var(--dorado);
+  line-height: 1.5;
+  color: var(--crema);
+  text-align: center;
+  max-width: 46ch;
+  margin: 0 auto var(--espacio-l);
 }
 
 /* --- Navegación entre canciones --- */
