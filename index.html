@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta musical</title>
+
+<!-- Tipografías: Cormorant Garamond (versos), Caveat (notas manuscritas), Jost (interfaz) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Salvaguarda: si JavaScript no carga, el contenido queda visible igual.
+     Esta línea agrega la clase "js" al <html> apenas se lee, antes de pintar
+     la página. El CSS solo oculta versos/notas/recuerdos cuando esta clase
+     está presente, así que sin JS todo se ve de una, sin animación pero
+     completo. -->
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- ============================================= -->
+  <!-- FONDO: capa de estrellas / textura nocturna    -->
+  <!-- ============================================= -->
+  <div class="fondo-estrellas" aria-hidden="true"></div>
+
+  <!-- ============================================= -->
+  <!-- PANTALLA 1: SOBRE SELLADO (pantalla de entrada) -->
+  <!-- ============================================= -->
+  <section id="sobre" class="sobre">
+
+    <!-- Encabezado de la carta, ahora en la pantalla inicial -->
+    <div class="sobre__encabezado">
+      <p class="sobre__fecha">Cartagena, algún día de julio...</p>
+      <h1 class="sobre__titulo">Una playlist fuera de lo común</h1>
+      <p class="sobre__subtitulo">para la que me robó las medias</p>
+      <p class="sobre__dedicatoria">
+        He estada haciendo una playlist de canciones que me recuerdan a ti desde que empezamos a salir,
+        y como me encanta hacer anotaciones en todo y estaba aburrida, lo convertí en esto, hope you like it &lt;3
+      </p>
+    </div>
+
+    <div class="sobre__cuerpo">
+      <div class="sobre__solapa"></div>
+      <!-- El sello de cera: al hacer clic, se rompe y abre la carta -->
+      <button id="sello" class="sello" aria-label="Abrir la carta" data-destino="cancion-1.html">
+        <span class="sello__inicial">A</span> <!-- CAMBIA esta inicial por la que quieras en el sello -->
+      </button>
+    </div>
+    <p class="sobre__pista">toca el sello para abrir</p>
+  </section>
+
+<script src="script.js"></script>
+</body>
+</html>
