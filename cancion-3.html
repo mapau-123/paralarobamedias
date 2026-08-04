@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para la robamedias</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Salvaguarda: si JavaScript no carga, el contenido queda visible igual. -->
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <div class="fondo-estrellas" aria-hidden="true"></div>
+
+  <!-- Esta página NO tiene sobre: el sobre solo existe una vez, en index.html.
+       Por eso "carta" no lleva el atributo "hidden" ni empieza oculta:
+       aparece visible de una vez al cargar la página. -->
+  <main id="carta" class="carta carta--visible">
+
+    <p class="sobre__fecha">23 de marzo</p>
+
+    <p class="carta__relato">
+      Recuerdo que me dijiste que esta canción te recordaba a mí, lo que no sabes es que mucho antes ya esa canción era tuya jasjajs desde el día que fuimos a Punta Arena con Mosaico y nos subimos a la moto, ahí era donde quería estar.
+    </p>
+
+    <!-- ============================================= -->
+    <!-- REPRODUCTOR DE AUDIO                           -->
+    <!-- ============================================= -->
+    <div class="reproductor" id="reproductor">
+      <audio id="audio" src="amoaqui.mp3" preload="metadata"></audio> <!-- CAMBIA la ruta del archivo -->
+
+      <button id="btn-play" class="reproductor__play" aria-label="Reproducir">
+        <svg class="icono-play" viewBox="0 0 24 24" width="18" height="18"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        <svg class="icono-pausa" viewBox="0 0 24 24" width="18" height="18" hidden><path d="M6 5h4v14H6zM14 5h4v14h-4z" fill="currentColor"/></svg>
+      </button>
+
+      <div class="reproductor__info">
+        <p class="reproductor__cancion">Amo Aquí</p> <!-- CAMBIA -->
+        <p class="reproductor__artista">Hector Nazza</p> <!-- CAMBIA -->
+      </div>
+
+      <div class="reproductor__barra">
+        <span class="reproductor__tiempo" id="tiempo-actual">0:00</span>
+        <input type="range" id="progreso" class="reproductor__progreso" value="0" min="0" max="100" aria-label="Progreso de la canción">
+        <span class="reproductor__tiempo" id="tiempo-total">0:00</span>
+      </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- LETRA CON NOTAS AL MARGEN                      -->
+    <!-- Mismo patrón que en index.html: cada verso con -->
+    <!-- nota lleva data-nota="N" y su <aside> hermano.  -->
+    <!-- ============================================= -->
+    <section class="letra">
+
+    <div class="estrofa">
+      <p class="verso">Estoy justo donde yo quiero estar</p>
+      <p class="verso verso--nota" data-nota="1">Una casa en el mar y arropado en tu piel</p>
+      <aside class="nota" data-nota="1">atesoro todas las veces que he estado contigo frente al mar</aside>
+      <p class="verso">Estamos tú y yo, no nos falta na</p>
+      <p class="verso">mai' solo bésame</p>
+      <p class="verso">Mira pa' acá, mira como el corazón late</p>
+      <p class="verso verso--nota" data-nota="2">No fue casualidad, era mi destino encontrarte</p>
+      <aside class="nota" data-nota="2">lo que Dios quiera, ¿no?</aside>
+      <p class="verso">Que no hay como tú, lo sé</p>
+      <p class="verso">Que tú eres perfecta, mami, yo lo sé</p>
+      <p class="verso verso--nota" data-nota="3">Que me quieres como soy, también lo sé</p>
+      <aside class="nota" data-nota="3">con lo boba hijueputa incluido</aside>
+      <p class="verso verso--nota" data-nota="4">Lo demás no es necesario explicarlo</p>
+      <aside class="nota" data-nota="4">seguimos en el cómo</aside>
+      <p class="verso">quiero estar pa' siempre</p>
+      <p class="verso">quedame a tu lado</p>
+      <p class="verso">Con todos esos besos que me das, hace que yo me aceleré</p>
+      <p class="verso">Pero ve, gracias por la oportunidad de ser</p>
+      <p class="verso">Quien despierte junto a ti al amanecer</p>
+      <p class="verso">Gracias por la oportunidad de ser</p>
+      <p class="verso">Quien despierte junto a ti al amanecer</p>
+    </div>
+  
+    <div class="estrofa">
+      <p class="verso">Estoy justo donde yo quiero estar</p>
+      <p class="verso">Una casa en el mar y arropado en tu piel</p>
+      <p class="verso">Estamos tú y yo, no nos falta na</p>
+      <p class="verso">Mai' solo bésame</p>
+      <p class="verso verso--nota" data-nota="5">Mira pa' acá, mira como el corazón late</p>
+      <aside class="nota" data-nota="5">al mismo ritmo, aún no lo escucho</aside>
+      <p class="verso verso--nota" data-nota="6">No fue casualidad, era mi destino encontrarte</p>
+      <aside class="nota" data-nota="6">cómo Dios quiera, ¿no?</aside>
+    </div>
+  
+    <div class="estrofa">
+      <p class="verso">Si sabías que esto iba en serio</p>
+      <p class="verso verso--nota" data-nota="7">Contigo nunca fue un misterio</p>
+      <aside class="nota" data-nota="7">írala jajsjasj, en negación</aside>
+      <p class="verso">Ya me puse en modo sicario</p>
+      <p class="verso">Pa' matar a todo aquel que esté en el medio</p>
+      <p class="verso">Es que esto es de los dos, nadie se puede oponer</p>
+      <p class="verso verso--nota" data-nota="8">A veces peleamos pero no te puedo perder</p>
+      <aside class="nota" data-nota="8">ush...</aside>
+      <p class="verso">Sabes que quiero quererte y que yo puedo poner</p>
+      <p class="verso">El mundo a tus pies si lo pides, bebé</p>
+    </div>
+  
+    <div class="estrofa">
+      <p class="verso">Estoy justo donde yo quiero estar</p>
+      <p class="verso">Una casa en el mar y arropado en tu piel</p>
+      <p class="verso">Estamos tú y yo, no nos falta na</p>
+      <p class="verso">Mai' solo bésame</p>
+      <p class="verso">Mira pa' acá, mira como el corazón late</p>
+      <p class="verso verso--nota" data-nota="9">No fue casualidad, era mi destino encontrarte</p>
+      <aside class="nota nota--resaltada" data-nota="9">hasta donde Dios quiera, ¿no?</aside>
+    </div>
+  
+  </section>
+
+    <!-- Navegación: esta página SÍ tiene "anterior" (vuelve a la portada / canción 1)
+         y "siguiente" (a la canción 3). CAMBIA los href según tus archivos. -->
+    <nav class="navegacion">
+      <a href="cancion-2.html" class="navegacion__anterior">← Anterior</a>
+      <a href="cancion-4.html" class="navegacion__siguiente">Siguiente canción →</a>
+    </nav>
+
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
