@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para la robamedias</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Salvaguarda: si JavaScript no carga, el contenido queda visible igual. -->
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <div class="fondo-estrellas" aria-hidden="true"></div>
+
+  <!-- Esta página NO tiene sobre: el sobre solo existe una vez, en index.html.
+       Por eso "carta" no lleva el atributo "hidden" ni empieza oculta:
+       aparece visible de una vez al cargar la página. -->
+  <main id="carta" class="carta carta--visible">
+
+    <p class="sobre__fecha">18 de abril</p>
+
+    <p class="carta__relato">
+      Estabamos en Avatar esa noche y esta canción empezó a sonar, recuerdo que la cantamos jocosamente, pero significó todo para mí en ese momento. Te podría entregar todo. (Excepto mi celular, ese me lo pierdes)
+    </p>
+
+    <!-- ============================================= -->
+    <!-- REPRODUCTOR DE AUDIO                           -->
+    <!-- ============================================= -->
+    <div class="reproductor" id="reproductor">
+      <audio id="audio" src="besame.mp3" preload="metadata"></audio> <!-- CAMBIA la ruta del archivo -->
+
+      <button id="btn-play" class="reproductor__play" aria-label="Reproducir">
+        <svg class="icono-play" viewBox="0 0 24 24" width="18" height="18"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        <svg class="icono-pausa" viewBox="0 0 24 24" width="18" height="18" hidden><path d="M6 5h4v14H6zM14 5h4v14h-4z" fill="currentColor"/></svg>
+      </button>
+
+      <div class="reproductor__info">
+        <p class="reproductor__cancion">Bésame</p> <!-- CAMBIA -->
+        <p class="reproductor__artista">Luister La Voz</p> <!-- CAMBIA -->
+      </div>
+
+      <div class="reproductor__barra">
+        <span class="reproductor__tiempo" id="tiempo-actual">0:00</span>
+        <input type="range" id="progreso" class="reproductor__progreso" value="0" min="0" max="100" aria-label="Progreso de la canción">
+        <span class="reproductor__tiempo" id="tiempo-total">0:00</span>
+      </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- LETRA CON NOTAS AL MARGEN                      -->
+    <!-- Mismo patrón que en index.html: cada verso con -->
+    <!-- nota lleva data-nota="N" y su <aside> hermano.  -->
+    <!-- ============================================= -->
+    <section class="letra">
+
+  <div class="estrofa">
+    <p class="verso verso--nota" data-nota="1">Bésame despacio y hazlo con pasión</p>
+    <aside class="nota" data-nota="1">No puedo creer que hayamos tardado casi un mes en besarnos por orgullosas</aside>
+    <p class="verso verso--nota" data-nota="2">Bésame con tu ternura, con tu corazón</p>
+    <aside class="nota" data-nota="2">No me arrepiento de nada</aside>
+    <p class="verso verso--nota" data-nota="3">Bésame como nunca antes lo habías hecho</p>
+    <aside class="nota" data-nota="3">En el patio, mientras todxs juegan a la botellita en la sala</aside>
+    <p class="verso verso--nota" data-nota="4">No dejes que la fantasía se quede con este momento</p>
+    <aside class="nota" data-nota="4">Lo valió todo</aside>
+    <p class="verso">No puedo regalarte joyas ni dinero</p>
+    <p class="verso">Pero sí tengo un amor, amor, amor, amor del bueno</p>
+    <p class="verso">No puedo regalarte la luna, pero sí te hago sentir en ella</p>
+    <p class="verso">No puedo regalarte una estrella, porque ya eres una de ellas</p>
+  </div>
+
+  <div class="estrofa">
+    <p class="verso">Bésame</p>
+    <p class="verso">No te detengas</p>
+    <p class="verso">Bésame</p>
+    <p class="verso">Qué tanto pensabas</p>
+    <p class="verso">Si en mí estás refugiada</p>
+    <p class="verso verso--nota" data-nota="5">Voy caminando por las calles</p>
+    <p class="verso">Y no dejo de pensar en ti, amor</p>
+    <aside class="nota" data-nota="5">¿Cómo te saco de mi cabeza 24/7?</aside>
+    <p class="verso">Te entrego mi humilde corazón</p>
+    <p class="verso">Que vale más que mil y un tesoros</p>
+    <p class="verso">Y si no me falla la razón</p>
+    <p class="verso">Yo a ti nunca dejaré de amarte</p>
+    <p class="verso">Siempre, por siempre estaré a tu lado</p>
+  </div>
+
+  <div class="estrofa">
+    <p class="verso">No puedo regalarte joyas ni dinero</p>
+    <p class="verso">Pero sí tengo un amor, amor, amor, amor del bueno</p>
+    <p class="verso">No puedo regalarte la luna, pero sí te hago sentir en ella</p>
+    <p class="verso">No puedo regalarte una estrella, porque ya eres una de ellas</p>
+    <p class="verso">Bésame</p>
+    <p class="verso">No te detengas</p>
+    <p class="verso">Bésame</p>
+    <p class="verso">Qué tanto pensabas</p>
+    <p class="verso">Si en mí estás refugiada</p>
+  </div>
+
+  <div class="estrofa">
+    <p class="verso">Yo quiero ser</p>
+    <p class="verso">Ese que te toca y te vuelve loca</p>
+    <p class="verso">Dame un besito, con cariñito</p>
+    <p class="verso">Que este momento se haga infinito</p>
+    <p class="verso">Bésame</p>
+    <p class="verso">No te detengas</p>
+    <p class="verso">Bésame</p>
+    <p class="verso">Qué tanto pensabas</p>
+    <p class="verso">Si en mí estás refugiada</p>
+  </div>
+
+  <div class="estrofa">
+    <p class="verso">Yo quiero ser</p>
+    <p class="verso">Ese que te toca y te vuelve loca</p>
+    <p class="verso">Dame un besito, con cariñito</p>
+    <p class="verso">Que este momento se haga infinito</p>
+    <p class="verso">Bésame</p>
+    <p class="verso">No te detengas</p>
+    <p class="verso">Bésame</p>
+  </div>
+
+</section>
+  
+  </section>
+
+    <!-- Navegación: esta página SÍ tiene "anterior" (vuelve a la portada / canción 1)
+         y "siguiente" (a la canción 3). CAMBIA los href según tus archivos. -->
+    <nav class="navegacion">
+      <a href="cancion-3.html" class="navegacion__anterior">← Anterior</a>
+      <a href="cancion-5.html" class="navegacion__siguiente">Siguiente canción →</a>
+    </nav>
+
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
