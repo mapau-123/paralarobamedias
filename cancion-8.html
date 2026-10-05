@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para la robamedias</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Salvaguarda: si JavaScript no carga, el contenido queda visible igual. -->
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <div class="fondo-estrellas" aria-hidden="true"></div>
+
+  <!-- Esta página NO tiene sobre: el sobre solo existe una vez, en index.html.
+       Por eso "carta" no lleva el atributo "hidden" ni empieza oculta:
+       aparece visible de una vez al cargar la página. -->
+  <main id="carta" class="carta carta--visible">
+
+    <p class="sobre__fecha">3 de junio</p>
+
+    <p class="carta__relato">
+
+    </p>
+
+    <!-- ============================================= -->
+    <!-- REPRODUCTOR DE AUDIO                           -->
+    <!-- ============================================= -->
+    <div class="reproductor" id="reproductor">
+      <audio id="audio" src="siteinteresa.mp3" preload="metadata"></audio> <!-- CAMBIA la ruta del archivo -->
+
+      <button id="btn-play" class="reproductor__play" aria-label="Reproducir">
+        <svg class="icono-play" viewBox="0 0 24 24" width="18" height="18"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        <svg class="icono-pausa" viewBox="0 0 24 24" width="18" height="18" hidden><path d="M6 5h4v14H6zM14 5h4v14h-4z" fill="currentColor"/></svg>
+      </button>
+
+      <div class="reproductor__info">
+        <p class="reproductor__cancion">End of the day</p> <!-- CAMBIA -->
+        <p class="reproductor__artista">One Direction</p> <!-- CAMBIA -->
+      </div>
+
+      <div class="reproductor__barra">
+        <span class="reproductor__tiempo" id="tiempo-actual">0:00</span>
+        <input type="range" id="progreso" class="reproductor__progreso" value="0" min="0" max="100" aria-label="Progreso de la canción">
+        <span class="reproductor__tiempo" id="tiempo-total">0:00</span>
+      </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- LETRA CON NOTAS AL MARGEN                      -->
+    <!-- Mismo patrón que en index.html: cada verso con -->
+    <!-- nota lleva data-nota="N" y su <aside> hermano.  -->
+    <!-- ============================================= -->
+
+
+
+    
+
+    <!-- Navegación: esta página SÍ tiene "anterior" (vuelve a la portada / canción 1)
+         y "siguiente" (a la canción 3). CAMBIA los href según tus archivos. -->
+    <nav class="navegacion">
+      <a href="cancion-7.html" class="navegacion__anterior">← Anterior</a>
+      <a href="cancion-9.html" class="navegacion__siguiente">Siguiente canción →</a>
+    </nav>
+
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
