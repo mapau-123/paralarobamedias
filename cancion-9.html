@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para la robamedias</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Salvaguarda: si JavaScript no carga, el contenido queda visible igual. -->
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <div class="fondo-estrellas" aria-hidden="true"></div>
+
+  <!-- Esta página NO tiene sobre: el sobre solo existe una vez, en index.html.
+       Por eso "carta" no lleva el atributo "hidden" ni empieza oculta:
+       aparece visible de una vez al cargar la página. -->
+  <main id="carta" class="carta carta--visible">
+
+    <p class="sobre__fecha">29 de julio</p>
+    <p class="carta__relato">
+      Cuando viajé a Medellín fue complejo. Pensé que ya estaba lista para regresar a esa ciudad y no fue así, fueron días díficiles y solo pensaba en lo mucho que quería que estuvieras ahí, conmigo, en mi llanto, en mi caos, en mi nostalgia. Esta canción es eso.
+    </p>
+
+    <!-- ============================================= -->
+    <!-- REPRODUCTOR DE AUDIO                           -->
+    <!-- ============================================= -->
+    <div class="reproductor" id="reproductor">
+      <audio id="audio" src="talkmedown.mp3" preload="metadata"></audio> <!-- CAMBIA la ruta del archivo -->
+
+      <button id="btn-play" class="reproductor__play" aria-label="Reproducir">
+        <svg class="icono-play" viewBox="0 0 24 24" width="18" height="18"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        <svg class="icono-pausa" viewBox="0 0 24 24" width="18" height="18" hidden><path d="M6 5h4v14H6zM14 5h4v14h-4z" fill="currentColor"/></svg>
+      </button>
+
+      <div class="reproductor__info">
+        <p class="reproductor__cancion">Talk me down</p> <!-- CAMBIA -->
+        <p class="reproductor__artista">Troye Sivan</p> <!-- CAMBIA -->
+      </div>
+
+      <div class="reproductor__barra">
+        <span class="reproductor__tiempo" id="tiempo-actual">0:00</span>
+        <input type="range" id="progreso" class="reproductor__progreso" value="0" min="0" max="100" aria-label="Progreso de la canción">
+        <span class="reproductor__tiempo" id="tiempo-total">0:00</span>
+      </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- LETRA CON NOTAS AL MARGEN                      -->
+    <!-- Mismo patrón que en index.html: cada verso con -->
+    <!-- nota lleva data-nota="N" y su <aside> hermano.  -->
+    <!-- ============================================= -->
+
+    <section class="letra">
+      <div class="estrofa">
+        <p class="verso">I wanna sleep next to you<span class="traduccion">Quiero dormir a tu lado</span></p>
+        <p class="verso verso--nota" data-nota="1">But that's all I wanna do right now<span class="traduccion">Pero eso es todo lo que quiero hacer ahora mismo</span></p>
+        <aside class="nota" data-nota="1">Significa mucho para mi que solo durmamos juntas, sin que tenga que pasar nada mas</aside>
+        <p class="verso">And I wanna come home to you<span class="traduccion">Y quiero volver a casa contigo</span></p>
+        <p class="verso verso--nota" data-nota="2">But home is just a room full of my safest sounds<span class="traduccion">Pero el hogar es solo una habitación llena de mis sonidos más seguros</span></p>
+        <aside class="nota" data-nota="2">me haces sentir segura contigo</aside>
+        <p class="verso verso--nota" data-nota="3">'Cause you know that I can't trust myself with my 3 A.M. shadow<span class="traduccion">Porque sabes que no puedo confiar en mí misma con mi sombra de las 3 A.M.</span></p>
+        <aside class="nota" data-nota="3">he tenido noches de desvelos donde temo por lo que pueda suceder</aside>
+        <p class="verso">I'd rather fuel a fantasy than deal with this alone<span class="traduccion">Prefiero alimentar una fantasía que lidiar con esto sola</span></p>
+        <p class="verso">I wanna sleep next to you<span class="traduccion">Quiero dormir a tu lado</span></p>
+        <p class="verso">But that's all I wanna do right now<span class="traduccion">Pero eso es todo lo que quiero hacer ahora mismo</span></p>
+        <p class="verso verso--nota" data-nota="4">So come over now and talk me down<span class="traduccion">Así que ven ahora y tranquilízame</span></p>
+        <aside class="nota" data-nota="4">que estes para mi me conforta demasiado</aside>
+        <p class="verso">I wanna hold hands with you<span class="traduccion">Quiero tomarte de la mano</span></p>
+      </div>
+    
+      <div class="estrofa">
+        <p class="verso">But that's all I wanna do right now<span class="traduccion">Pero eso es todo lo que quiero hacer ahora mismo</span></p>
+        <p class="verso verso--nota" data-nota="5">And I wanna get close to you<span class="traduccion">Y quiero acercarme a ti</span></p>
+        <aside class="nota" data-nota="5">nuestros cuerpos podrian unirse en uno y no seria suficiente</aside>
+        <p class="verso">'Cause your hands and lips still know their way around<span class="traduccion">Porque tus manos y labios aún se conocen el camino</span></p>
+        <p class="verso verso--nota" data-nota="6">And I know I like to draw that line, when it starts to get too real<span class="traduccion">Y sé que me gusta trazar esa línea cuando empieza a volverse demasiado real</span></p>
+        <aside class="nota" data-nota="6">suelo huir cuando se pone muy serio</aside>
+        <p class="verso">But the less time that I spend with you, the less you need to heal<span class="traduccion">Pero cuanto menos tiempo pase contigo, menos tendrás que sanar</span></p>
+        <p class="verso">I wanna sleep next to you<span class="traduccion">Quiero dormir a tu lado</span></p>
+        <p class="verso">But that's all I wanna do right now<span class="traduccion">Pero eso es todo lo que quiero hacer ahora mismo</span></p>
+        <p class="verso">So come over now and talk me down<span class="traduccion">Así que ven ahora y tranquilízame</span></p>
+        <p class="verso">(Talk me down)<span class="traduccion">(Tranquilízame)</span></p>
+      </div>
+    
+      <div class="estrofa">
+        <p class="verso verso--nota" data-nota="7">So if you don't mind, I'll walk that line<span class="traduccion">Así que si no te importa, caminaré por esa línea</span></p>
+        <aside class="nota" data-nota="7">puedo</aside>
+        <p class="verso verso--nota" data-nota="8">Stuck on the bridge between us<span class="traduccion">Atrapada en el puente entre nosotras</span></p>
+        <aside class="nota" data-nota="8">derrumbar la pared</aside>
+        <p class="verso">Gray areas and expectations<span class="traduccion">Zonas grises y expectativas</span></p>
+        <p class="verso verso--nota" data-nota="9">But I'm not the one if we're honest, yeah<span class="traduccion">Pero si somos honestas, no soy la indicada, sí</span></p>
+        <aside class="nota" data-nota="9">sigo temiendo ser demasiado</aside>
+        <p class="verso">But I wanna sleep next to you<span class="traduccion">Pero quiero dormir a tu lado</span></p>
+        <p class="verso">And I wanna come home to you<span class="traduccion">Y quiero volver a casa contigo</span></p>
+        <p class="verso">I wanna hold hands with you<span class="traduccion">Quiero tomarte de la mano</span></p>
+        <p class="verso">I wanna be close to you<span class="traduccion">Quiero estar cerca de ti</span></p>
+      </div>
+    
+      <!-- Coro repetido -->
+      <div class="estrofa">
+        <p class="verso">But I wanna sleep next to you<span class="traduccion">Pero quiero dormir a tu lado</span></p>
+        <p class="verso">And that's all I wanna do right now<span class="traduccion">Y eso es todo lo que quiero hacer ahora mismo</span></p>
+        <p class="verso">And I wanna come home to you<span class="traduccion">Y quiero volver a casa contigo</span></p>
+        <p class="verso">But home is just a room full of my safest sounds<span class="traduccion">Pero el hogar es solo una habitación llena de mis sonidos más seguros</span></p>
+        <p class="verso">So come over now and talk me down<span class="traduccion">Así que ven ahora y tranquilízame</span></p>
+        <p class="verso">(Talk me down)<span class="traduccion">(Tranquilízame)</span></p>
+      </div>
+    
+    </section>
+    
+
+    <!-- Navegación: esta página SÍ tiene "anterior" (vuelve a la portada / canción 1)
+         y "siguiente" (a la canción 3). CAMBIA los href según tus archivos. -->
+    <nav class="navegacion">
+      <a href="cancion-8.html" class="navegacion__anterior">← Anterior</a>
+      <a href="cancion-10.html" class="navegacion__siguiente">Siguiente canción →</a>
+    </nav>
+
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
