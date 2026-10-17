@@ -542,6 +542,40 @@ html.js .recuerdo--rotada-der.recuerdo--visible { transform: rotate(3deg); }
   color: var(--dorado);
 }
 
+/* --- Página final: mensaje + botón a la playlist --- */
+.final {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 70vh;
+  justify-content: center;
+  text-align: center;
+}
+
+.final .carta__relato {
+  margin-bottom: var(--espacio-l);
+}
+
+.boton-playlist {
+  display: inline-block;
+  font-family: var(--fuente-interfaz);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: var(--dorado);
+  text-decoration: none;
+  padding: var(--espacio-s) var(--espacio-l);
+  border: 1px solid var(--dorado);
+  border-radius: 999px;
+  transition: background 0.3s var(--ease-suave), color 0.3s var(--ease-suave), transform 0.3s var(--ease-suave);
+}
+
+.boton-playlist:hover,
+.boton-playlist:focus-visible {
+  background: var(--dorado);
+  color: var(--azul-tinta);
+  transform: translateY(-2px);
+}
+
 /* --- Navegación entre canciones --- */
 .navegacion {
   display: flex;

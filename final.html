@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta musical — final</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="fondo-estrellas" aria-hidden="true"></div>
+
+  <!-- Última página del mixtape: sin reproductor ni letra, solo el mensaje
+       de cierre y el botón a la playlist. No necesita script.js. -->
+  <main id="carta" class="carta carta--visible final">
+
+    <p class="fecha">Cartagena, [fecha]</p> <!-- CAMBIA -->
+
+    <p class="carta__relato">
+      Escribe aquí tu mensaje de cierre.
+    </p> <!-- CAMBIA -->
+
+    <!-- CAMBIA el href por el enlace real de tu playlist de Spotify -->
+    <a href="https://open.spotify.com/playlist/TU-PLAYLIST"
+       class="boton-playlist" target="_blank" rel="noopener">
+      Escuchar la playlist completa
+    </a>
+
+    <!-- "Anterior" vuelve a la última canción. Ajusta el nombre del archivo
+         si tu décima canción se llama distinto. -->
+    <nav class="navegacion" style="width:100%">
+      <a href="cancion-10.html" class="navegacion__anterior">← Anterior</a>
+    </nav>
+
+  </main>
+
+</body>
+</html>
